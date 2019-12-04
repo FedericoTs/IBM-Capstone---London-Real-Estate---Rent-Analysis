@@ -19,12 +19,12 @@ We could identify 3 main reasons why a flat doesn't fit the customer needs:
 Our goal with this Notebook is to have a systematic way to analyze the offers posted by RightMove.co.uk to produce a map of the best opportunities in the city.
 If you are looking for a new flat and you like your actual neighbour, we can provide you with a list of all the opportunity on the market.
 
-For this project, I'm going to create a simple software that scrape the website RightMove to collect an updated list of flat for rent, analyze each offer using Foursquare and cluster them to divide the housing market in 20 groups with similar neighbours.
+For this project, I'm going to create simple software that scrapes the website RightMove to collect an updated list of flat for rent, analyze each offer using Foursquare and cluster them to divide the housing market into 20 groups with similar neighbours.
 
 ## Methodology
 For this particular analysis, we are going to collect updated data from RightMove.co.uk.
 
-To do so, I decided to spend time developing a web scraping application using Beautiful Soup 4, but then I discovered a repository on GitHub offered by toby-p and available on his profile, that's provide a easy way to scrape RightMove!
+To do so, I decided to spend time developing a web scraping application using Beautiful Soup 4, but then I discovered a repository on GitHub offered by toby-p and available on his profile, that provides an easy way to scrape Rightmove!
 
 This script collect the following data:
 
@@ -45,7 +45,7 @@ A record will look like as the following:
 
 The address is in the format *"Street, City, Postcode"* and is an unstructured field but for our purpose, we can leave as it is. Instead, the PostCode present a *"limited"* format because we have the first two/three digits only. This is not accurate enough to collect meaningful data about the venues around the flat.
 
-In order to solve this problem, we are going to use OpenCage Geocoder API to look up coordinates from a postal address. This is a case when an unstructured field becomes helpful.
+To solve this problem, we are going to use OpenCage Geocoder API to look up coordinates from a postal address. This is a case when an unstructured field becomes helpful.
 
 To associate each rent offer to a District, we are going to join the data table with a second dataset presenting two columns:
 
@@ -75,10 +75,10 @@ This part of the analysis has as output a data frame with a list of filtered res
 As expected, the price of a flat can't be forecast based on the venues around it only and there is, of course, a strong correlation between the number of bedrooms and price. Nevertheless, is possible to develop a prediction model to take in consideration not only the characteristics of the flat but also the District the flat belongs to and the presence of some key venues near the flat.
 An example of key factors could be the presence of supermarkets with high reputation, a public transport stop, schools or Universities, Hospital. The correlation between price and these categories is low but still important to the final users.
 
-The goal of this notebook is to provide to everyone a way to scrape the housing market and identify the best offers that fit the user's personal needs. Providing an ideal address and the number of bedrooms the user is looking for, he/she can easily understand which area of London is the best for his/her next step.
+The goal of this notebook is to provide everyone with a way to scrape the housing market and identify the best offers that fit the user's personal needs. Providing an ideal address and the number of bedrooms the user is looking for, he/she can easily understand which area of London is the best for his/her next step.
 
 
-In order to change the location you need just to change the initial url into the cell with the following code:
+To change the location you need just to change the initial URL into the cell with the following code:
 
 ```
 from rightmove_webscraper import RightmoveData
